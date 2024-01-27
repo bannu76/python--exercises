@@ -1,0 +1,17 @@
+def main():
+    (no_of_fruits,no_of_swaps)=map(int,input().split())
+    basket_A=sorted(list(map(int,input().split())))
+    basket_B=sorted(list(map(int,input().split())),reverse=True)
+
+    for i in range(no_of_swaps):
+        max_B=max(basket_B)
+        min_A=min(basket_A)
+        if(max_B>min_A):
+            basket_B.remove(max_B)
+            basket_A.remove(min_A)
+            basket_A+=[max_B]
+            basket_B+=[min_A]
+    
+    print(sum(basket_A))
+      
+main()
